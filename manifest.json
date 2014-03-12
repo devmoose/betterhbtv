@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+
+    "name": "Better HitBox TV",
+    "description": "Extended chat features for HitBox.tv",
+    "version": "0.1",
+
+    "permissions": [
+        "http://www.hitbox.tv/"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["http://www.hitbox.tv/*"],
+            "js": ["js/jquery.js", "js/chat.js"],
+            "css": ["css/style.css"],
+            "run_at": "document_idle"
+        }
+    ]
+}
