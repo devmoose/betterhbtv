@@ -33,8 +33,11 @@ var HBAPI = (function() {
                 elem.innerHTML = elem.innerHTML.replace(me, newme);
             }).parent().parent().addClass("highlight");
         },
+        skipImages: function() {
+            $("ul.chatBody li span.message:not(.url-skip) img").parent().addClass('url-skip').parent().addClass('url-skip');
+        },
         checkForUrls: function() {
-            $("ul.chatBody li span.message:not(.url-skip):containsRegex('" + URL + "')").each(function(i, el) {
+            $("ul.chatBody li span.message:not(.url-skip):not(:containsRegex('/(\.png|\.jpg|\.jpeg|\.gif)$/')):containsRegex('" + URL + "')").each(function(i, el) {
                 var results = URL.exec(el.innerHTML);
                 if (results[3] != null) {
                     el.innerHTML = el.innerHTML.replace(URL, "<a href='$1' target='_blank'>$4</a>");
@@ -48,12 +51,13 @@ var HBAPI = (function() {
             if (loggedIn) {
                 HBAPI.checkHighlights();
             }
+            HBAPI.skipImages();
             HBAPI.checkForUrls();
         },
         init: function() {
             me = $("span.navItemsUser div.cursorD span.ng-binding").html();
             loggedIn = $("body").hasClass("loggedIn");
-            setInterval(this.fixMessage, 500);
+            setInterval(this.fixMessage, 750);
         },
         log: function(msg) {
             var d = new Date();
