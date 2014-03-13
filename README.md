@@ -1,9 +1,14 @@
-<<<<<<< HEAD
-bhbtv
-=====
+Better Hitbox.tv Chat
+---------------------
+Adds additional features to chat functionality on Hitbox.tv chatrooms.
 
-Better HitBox TV
-=======
-betterhbtv
-==========
->>>>>>> adf9b56d3e7543edfba7c6f67a41cd3622b5cbbd
+Current features:
+ - username highlighting
+ - URL auto-linking: URLs currently are not automatically translated into clickable links
+
+
+Roadmap:
+ - unlimited alias/keyword highlighting
+ - persistent settings (not having to re-enable timestamps/userlist on every refresh)
+ - customizable highlighting colors
+ - darkening the theme (similar to Better TwitchTV)
