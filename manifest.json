@@ -12,7 +12,7 @@
         {
             "matches": ["http://www.hitbox.tv/*"],
             "js": ["js/jquery.js", "js/chat.js"],
-            "css": ["css/style.css", "css/dark.css"],
+            "css": ["css/style.css", "css/typicons.min.css", "css/dark.css"],
             "run_at": "document_idle"
         }
     ]

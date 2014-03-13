@@ -23,6 +23,7 @@ var HBAPI = (function() {
             if (loggedIn) {
                 HBAPI.checkHighlights(HBAPI.me);
             }
+            HBAPI.addIcons();
         },
         init: function() {
             me = $("span.navItemsUser div.cursorD span.ng-binding").html();

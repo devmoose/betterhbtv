@@ -1,4 +1,4 @@
-.body, .view, .detailWrap, .detail, .detailInner .lower, .detailInner .userContent, .detailInner .ps-scrollbar-x, .detailInner .meta, .chatInput {
+body, .view, .detailWrap, .detail, .detailInner .lower, .detailInner .userContent, .detailInner .ps-scrollbar-x, .detailInner .meta, .chatInput {
     color: hsl(0,0%,90%) !important;
     background-color: hsl(0,0%,13%) !important;
 }
@@ -33,8 +33,8 @@ textarea, #chatInput {
     padding: 0.375em .5em;
 }
 
-.chatContent {
-    background-color: #000 !important;
+.chatContent, .chatContent .bufferTimestamp {
+    background-color: hsl(0,0%,20%) !important;
 }
 
 .chatBody li.admin {
@@ -50,15 +50,26 @@ textarea, #chatInput {
     color: hsl(0,0%,65%);
 }
 
-.chatBody li.admin span.name {
-    background-color: hsl(0,0%,60%) !important;
-    border-radius: 5px;
-    -webkit-moz-border: 5px;
-    -moz-moz-border: 5px;
-    -ms-moz-border: 5px;
-    -o-moz-border: 5px;
-    moz-border: 5px;
-    padding: 1px;
+.chatBody li.admin span.name, .chatBody li.user span.name {
+    padding: 2px;
+}
+
+.chatBody li.admin span.name:before {
+    color: hsl(0, 0%, 0%);
+    font-family: 'fontello';
+    content: '\e82e';
+    padding-right: 2px;
+}
+
+.chatBody li.user span.name:before {
+    color: hsl(0, 0%, 70%);
+    font-family: 'fontello';
+    content: '\e862';
+    padding-right: 2px;
+}
+
+img.admin-icon {
+    margin-right: 2px;
 }
 
 .chatInput .icon-cog {
