@@ -5,3 +5,8 @@
 .emphasize {
     font-style: italic;
 }
+
+a.devmoose {
+    color: #FF6000 !important;
+    font-weight: bold;
+}
