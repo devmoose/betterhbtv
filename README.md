@@ -6,14 +6,14 @@ Current features:
  - username highlighting
 
 
-**Roadmap
+**Roadmap**
  - unlimited alias/keyword highlighting
  - persistent settings (not having to re-enable timestamps/userlist on every refresh)
  - customizable highlighting colors
  - darkening the theme (similar to Better TwitchTV)
 
 
-**Installation
+**Installation**
 - To enable this Chrome extension, you must first download the zip file (https://github.com/devmoose/betterhbtv/archive/devmoose.zip).
 - Once downloaded, extract it to your computer.
 - Then, in Chrome, go to Settings -> Extensions and make sure you have the checkbox for "Developer Mode" checked. This will provide two buttons.
