@@ -3,11 +3,8 @@
  *
  * Adds a few features that don't currently exist with the chat interface on Hitbox.tv.
  *  - name highlight
- *  - URLs are not linked automatically
- *  - Timestamp/userlist have to be re-enabled each time the page is loaded
+  *  - Timestamp/userlist have to be re-enabled each time the page is loaded
  */
-
-var URL = /(((http|ftp|https):\/\/)?([\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?))/;
 
 $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     return function( elem ) {
@@ -15,44 +12,17 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     };
 });
 
-$.extend($.expr[':'],{
-    containsRegex: function(a,i,m){
-        var regreg =  /^\/((?:\\\/|[^\/])+)\/([mig]{0,3})$/,
-            reg = regreg.exec(m[3]);
-        return reg ? RegExp(reg[1], reg[2]).test($.trim(a.innerHTML)) : false;
-    }
-});
-
 var HBAPI = (function() {
     var me;
     var loggedIn = false;
     return {
-        checkHighlights: function() {
-            $("ul.chatBody li span.message:not(.highlight):contains('" + me + "')").each(function(index, elem) {
-                var newme = "<span class='emphasize'>" + me + "</span>";
-                elem.innerHTML = elem.innerHTML.replace(me, newme);
-            }).parent().parent().addClass("highlight");
-        },
-        skipImages: function() {
-            $("ul.chatBody li span.message:not(.url-skip) img").parent().addClass('url-skip').parent().addClass('url-skip');
-        },
-        checkForUrls: function() {
-            $("ul.chatBody li span.message:not(.url-skip):not(:containsRegex('/(\.png|\.jpg|\.jpeg|\.gif)$/')):containsRegex('" + URL + "')").each(function(i, el) {
-                var results = URL.exec(el.innerHTML);
-                if (results[3] != null) {
-                    el.innerHTML = el.innerHTML.replace(URL, "<a href='$1' target='_blank'>$4</a>");
-                }
-                else {
-                    el.innerHTML = el.innerHTML.replace(URL, "<a href='http://$1' target='_blank'>$4</a>");
-                }
-            }).addClass("url-skip");
+        checkHighlights: function(keyword) {
+            $("ul.chatBody li span.message:not(.highlight):contains('" + keyword + "')").parent().parent().addClass("highlight");
         },
         fixMessage: function() {
             if (loggedIn) {
-                HBAPI.checkHighlights();
+                HBAPI.checkHighlights(HBAPI.me);
             }
-            HBAPI.skipImages();
-            HBAPI.checkForUrls();
         },
         init: function() {
             me = $("span.navItemsUser div.cursorD span.ng-binding").html();
