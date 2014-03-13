@@ -1,0 +1,66 @@
+.body, .view, .detailWrap, .detail, .detailInner .lower, .detailInner .userContent, .detailInner .ps-scrollbar-x, .detailInner .meta, .chatInput {
+    color: hsl(0,0%,90%) !important;
+    background-color: hsl(0,0%,13%) !important;
+}
+
+a, .detailInner .meta .title, .detail .btns .hover, section.name, section h4, a .tMetaSmall {
+    color: hsl(0,0%,90%)!important;
+}
+
+a .tTitle {
+    color: hsl(0,0%,50%)!important;
+}
+
+a .tStatus{
+    color: hsl(0,0%,70%)!important;
+}
+
+a:hover, .detail .btns a:hover {
+    color: #8FBF00 !important;
+}
+
+textarea, #chatInput {
+    background-color: hsl(0,0%,20%) !important;
+    color: hsl(0,0%,85%) !important;
+}
+
+.chatBody li.user {
+    background-color: hsl(0, 0%, 15%) !important;
+}
+
+.chatBody.fontSize1 li {
+    background-color: hsl(0, 0%, 20%);
+    padding: 0.375em .5em;
+}
+
+.chatContent {
+    background-color: #000 !important;
+}
+
+.chatBody li.admin {
+    background-color: hsl(0,0%,25%) !important;
+}
+
+.chatUsers {
+    background-color: hsl(0, 0%, 20%) !important;
+    color: hsl(0,0%,85%) !important;
+}
+
+.chatUsers h5 {
+    color: hsl(0,0%,65%);
+}
+
+.chatBody li.admin span.name {
+    background-color: hsl(0,0%,60%) !important;
+    border-radius: 5px;
+    -webkit-moz-border: 5px;
+    -moz-moz-border: 5px;
+    -ms-moz-border: 5px;
+    -o-moz-border: 5px;
+    moz-border: 5px;
+    padding: 1px;
+}
+
+.chatInput .icon-cog {
+    color: hsl(0, 0%, 80%) !important;
+}
