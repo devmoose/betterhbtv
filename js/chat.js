@@ -49,24 +49,29 @@ var HBAPI = (function() {
     var loggedIn = false;
     return {
         checkHighlights: function(keyword) {
-            $("ul.chatBody li span.message:not(.highlight):contains('" + keyword + "')").parent().parent().addClass("highlight");
+            $("ul.chatBody li:not(.skip) span.message:contains('" + keyword + "')").parent().parent().addClass("skip highlight");
+        },
+        addIcons: function() {
+            $("ul.chatBody li.user").addClass("mods");
+            $("ul.chatBody li.admin").addClass("adm");
         },
         fixMessage: function() {
             if (loggedIn) {
-                HBAPI.checkHighlights(HBAPI.me);
+                HBAPI.checkHighlights(me);
             }
+            HBAPI.addIcons();
         },
         init: function() {
+            this.log("<strong>Better HitBoxTV</strong> - Brought to you by <a class='devmoose' href='http://hitbox.tv/TheMoose' target='_blank'>TheMoose</a>");
             me = $("span.navItemsUser div.cursorD span.ng-binding").html();
             loggedIn = $("body").hasClass("loggedIn");
             setInterval(this.fixMessage, 750);
-            this.log("<strong>Better HitBoxTV</strong> - Brought to you by <a class='devmoose' href='http://hitbox.tv/TheMoose' target='_blank'>TheMoose</a>");
         },
         log: function(msg) {
             // Simple logging. Adds an item to the chat list display.
             var d = new Date();
             var time = d.getHours() + ":" + d.getMinutes();
-            var template = "<li ng-repeat='message in messages' class='from_ buffer_'><p>" +
+            var template = "<li ng-repeat='message in messages' class='from_ buffer_ skip'><p>" +
                 "<span ng-bind-html-unsafe='message.text' class='message ng-binding'>" + msg + "</span>" +
                 "</p><div class='bufferTimestamp'></div><p></p></li>";
             $("ul.chatBody").prepend(template);

@@ -10,3 +10,21 @@ a.devmoose {
     color: #FF6000 !important;
     font-weight: bold;
 }
+
+.chatBody li.admin span.name, .chatBody li.user span.name {
+    padding: 2px;
+}
+
+.chatBody li.admin span.name:before {
+    color: hsl(0, 0%, 0%);
+    font-family: 'fontello';
+    content: '\e82e';
+    padding-right: 2px;
+}
+
+.chatBody li.user span.name:before {
+    color: hsl(0, 0%, 50%);
+    font-family: 'fontello';
+    content: '\e862';
+    padding-right: 2px;
+}

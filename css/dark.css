@@ -50,28 +50,6 @@ textarea, #chatInput {
     color: hsl(0,0%,65%);
 }
 
-.chatBody li.admin span.name, .chatBody li.user span.name {
-    padding: 2px;
-}
-
-.chatBody li.admin span.name:before {
-    color: hsl(0, 0%, 0%);
-    font-family: 'fontello';
-    content: '\e82e';
-    padding-right: 2px;
-}
-
-.chatBody li.user span.name:before {
-    color: hsl(0, 0%, 70%);
-    font-family: 'fontello';
-    content: '\e862';
-    padding-right: 2px;
-}
-
-img.admin-icon {
-    margin-right: 2px;
-}
-
 .chatInput .icon-cog {
     color: hsl(0, 0%, 80%) !important;
 }
