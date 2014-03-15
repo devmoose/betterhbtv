@@ -2,13 +2,13 @@ Better Hitbox.tv Chat Chrome Extension
 --------------------------------------
 Adds additional features to chat functionality on Hitbox.tv chatrooms.
 
-Current features:
+**Current features**
  - username highlighting
+ - userlist/timestamp settings are remembered
 
 
 **Roadmap**
  - unlimited alias/keyword highlighting
- - persistent settings (not having to re-enable timestamps/userlist on every refresh)
  - customizable highlighting colors
  - darkening the theme (similar to Better TwitchTV)
 

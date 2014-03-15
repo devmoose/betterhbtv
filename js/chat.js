@@ -14,11 +14,9 @@ var SETTINGSDB = (function(){
         },
         get: function(key) {
             if (settings.hasOwnProperty(key)) {
-                console.log(key + ": " + settings[key]);
                 return settings[key];
             }
             else {
-                console.log(key + " does not exist");
                 return null;
             }
         },
@@ -36,7 +34,6 @@ var SETTINGSDB = (function(){
             if (Object.keys(config).length != 0) {
                 settings = config['bhbtv.settings'];
             }
-            console.log(settings);
         },
         init: function() {
             chrome.storage.sync.get("bhbtv.settings", SETTINGSDB.load);
@@ -66,6 +63,7 @@ var HBAPI = (function() {
             me = $("span.navItemsUser div.cursorD span.ng-binding").html();
             loggedIn = $("body").hasClass("loggedIn");
             setInterval(this.fixMessage, 750);
+            HBAPI.addSettingsOption();
         },
         log: function(msg) {
             // Simple logging. Adds an item to the chat list display.
@@ -91,7 +89,17 @@ var HBAPI = (function() {
             $("#timestampsBox").bind('change', function() {
                 SETTINGSDB.set('timestamp', $(this).is(":checked"));
             });
-        }
+        },
+        addSettingsOption: function() {
+            var listOption = "<section><span id='bhbtv.btn' class='icon-cog hoverG2'>BetterHBTV Settings</span></section>";
+            console.log(listOption, $("section.chatOverlay div.chatSettings:not(.chatUserHoverCard) section").last().html());
+            $("section.chatOverlay div.chatSettings:not(.chatUserHoverCard) section").last().after(listOption);
+            $("#bhbtv.btn").bind("click", HBAPI.showSettings);
+        },
+        settingsModal: function() {
+
+        },
+        showSettings: function() {}
     };
 })();
 
