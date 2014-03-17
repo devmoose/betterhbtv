@@ -16,5 +16,8 @@
             "css": ["css/style.css"],
             "run_at": "document_idle"
         }
-    ]
+    ],
+    "icons": {
+        "48": "bhbtv.icon.png"
+    }
 }

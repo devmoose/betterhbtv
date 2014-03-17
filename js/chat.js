@@ -92,14 +92,25 @@ var HBAPI = (function() {
         },
         addSettingsOption: function() {
             var listOption = "<section><span id='bhbtv.btn' class='icon-cog hoverG2'>BetterHBTV Settings</span></section>";
-            console.log(listOption, $("section.chatOverlay div.chatSettings:not(.chatUserHoverCard) section").last().html());
             $("section.chatOverlay div.chatSettings:not(.chatUserHoverCard) section").last().after(listOption);
             $("#bhbtv.btn").bind("click", HBAPI.showSettings);
         },
         settingsModal: function() {
 
         },
-        showSettings: function() {}
+        showSettings: function() {},
+        showHighlightWords: function() {
+            var template = "<div id='highlightDialog'><table><tr><th>Keyword</th><th>Color Code</th></tr>";
+            var settings = SETTINGSDB.get("highlights", {});
+            for (var word in settings) {
+                template += "<tr style='background-color: " + settings[word] + "'><td>" + word + "</td><td>" + settings[word] + "</td></tr>"
+            }
+            template += "</table></div>";
+            return template;
+        },
+        buildKeywordAliasForm: function() {
+            var template = "<input type='text' name='keyword' class='keyword'><input type='text' class='keycolor' name='keycolor'>";
+        }
     };
 })();
 
